@@ -26,12 +26,12 @@ def setup_db():
         instructor_id TEXT PRIMARY KEY, name TEXT NOT NULL, age INTEGER NOT NULL CHECK(age >= 0), email TEXT NOT NULL);
     CREATE TABLE IF NOT EXISTS courses(
         course_id TEXT PRIMARY KEY, course_name TEXT NOT NULL,
-        instructor_id TEXT, FOREIGN KEY(instructor_id) REFERENCES instructors(instructor_id) ON DELETE SET NULL);
+        instructor_id TEXT, FOREIGN KEY(instructor_id) REFERENCES instructors(instructor_id) ON DELETE SET NULL ON UPDATE CASCADE);
     CREATE TABLE IF NOT EXISTS enrollments(
         student_id TEXT NOT NULL, course_id TEXT NOT NULL,
         PRIMARY KEY(student_id, course_id),
-        FOREIGN KEY(student_id) REFERENCES students(student_id) ON DELETE CASCADE,
-        FOREIGN KEY(course_id) REFERENCES courses(course_id) ON DELETE CASCADE);
+        FOREIGN KEY(student_id) REFERENCES students(student_id) ON DELETE CASCADE ON UPDATE CASCADE,
+        FOREIGN KEY(course_id) REFERENCES courses(course_id) ON DELETE CASCADE ON UPDATE CASCADE);
     """)
     conn.commit()
     return conn
