@@ -1,0 +1,154 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lab 3 Notes &mdash; School Management System 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=8d563738"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Tkinter Interface" href="tkinter.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            School Management System
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="modules.html">Python API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tkinter.html">Tkinter Interface</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Lab 3 Notes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#docstrings">Docstrings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sphinx-workflow">Sphinx Workflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#project-details">Project Details</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">School Management System</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Lab 3 Notes</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/lab3_notes.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="lab-3-notes">
+<h1>Lab 3 Notes<a class="headerlink" href="#lab-3-notes" title="Link to this heading"></a></h1>
+<section id="docstrings">
+<h2>Docstrings<a class="headerlink" href="#docstrings" title="Link to this heading"></a></h2>
+<p>The project uses Python docstrings on modules, classes, and functions. They
+are available through <code class="docutils literal notranslate"><span class="pre">__doc__</span></code> and <code class="docutils literal notranslate"><span class="pre">help()</span></code> and can be read by Sphinx.
+Napoleon is enabled so the concise docstrings and parameter details are
+converted into readable Sphinx documentation.</p>
+</section>
+<section id="sphinx-workflow">
+<h2>Sphinx Workflow<a class="headerlink" href="#sphinx-workflow" title="Link to this heading"></a></h2>
+<p>From the project folder, install the documentation dependency if needed:</p>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">-m</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">-r</span> <span class="n">docs</span><span class="p">\</span><span class="n">requirements</span><span class="p">.</span><span class="n">txt</span>
+</pre></div>
+</div>
+<p>Build the HTML documentation with:</p>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="n">sphinx-build</span> <span class="n">-b</span> <span class="n">html</span> <span class="n">docs</span> <span class="n">docs</span><span class="p">\</span><span class="n">_build</span><span class="p">\</span><span class="n">html</span>
+</pre></div>
+</div>
+<p>The generated site is available at <code class="docutils literal notranslate"><span class="pre">docs\_build\html\index.html</span></code>.
+To rebuild from scratch, remove the build directory or run:</p>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="n">sphinx-build</span> <span class="n">-M</span> <span class="n">clean</span> <span class="n">docs</span> <span class="n">docs</span><span class="p">\</span><span class="n">_build</span>
+<span class="n">sphinx-build</span> <span class="n">-b</span> <span class="n">html</span> <span class="n">docs</span> <span class="n">docs</span><span class="p">\</span><span class="n">_build</span><span class="p">\</span><span class="n">html</span>
+</pre></div>
+</div>
+</section>
+<section id="project-details">
+<h2>Project Details<a class="headerlink" href="#project-details" title="Link to this heading"></a></h2>
+<dl class="field-list simple">
+<dt class="field-odd">Project<span class="colon">:</span></dt>
+<dd class="field-odd"><p>School Management System</p>
+</dd>
+<dt class="field-even">Author<span class="colon">:</span></dt>
+<dd class="field-even"><p>Khaled Kanawati</p>
+</dd>
+<dt class="field-odd">Version<span class="colon">:</span></dt>
+<dd class="field-odd"><p>1.0.0</p>
+</dd>
+<dt class="field-even">Copyright<span class="colon">:</span></dt>
+<dd class="field-even"><p>2026, Khaled Kanawati</p>
+</dd>
+</dl>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="tkinter.html" class="btn btn-neutral float-left" title="Tkinter Interface" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Khaled Kanawati.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

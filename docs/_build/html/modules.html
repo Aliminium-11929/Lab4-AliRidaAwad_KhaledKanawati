@@ -1,0 +1,692 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Python API &mdash; School Management System 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=8d563738"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Tkinter Interface" href="tkinter.html" />
+    <link rel="prev" title="School Management System" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            School Management System
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Python API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#module-part1_oop">Object-oriented models</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#part1_oop.Course"><code class="docutils literal notranslate"><span class="pre">Course</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#part1_oop.Course.add_student"><code class="docutils literal notranslate"><span class="pre">Course.add_student()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#part1_oop.Course.to_dict"><code class="docutils literal notranslate"><span class="pre">Course.to_dict()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#part1_oop.Instructor"><code class="docutils literal notranslate"><span class="pre">Instructor</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#part1_oop.Instructor.assign_course"><code class="docutils literal notranslate"><span class="pre">Instructor.assign_course()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#part1_oop.Instructor.to_dict"><code class="docutils literal notranslate"><span class="pre">Instructor.to_dict()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#part1_oop.Person"><code class="docutils literal notranslate"><span class="pre">Person</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#part1_oop.Person.email"><code class="docutils literal notranslate"><span class="pre">Person.email</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#part1_oop.Person.introduce"><code class="docutils literal notranslate"><span class="pre">Person.introduce()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#part1_oop.Student"><code class="docutils literal notranslate"><span class="pre">Student</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#part1_oop.Student.register_course"><code class="docutils literal notranslate"><span class="pre">Student.register_course()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#part1_oop.Student.to_dict"><code class="docutils literal notranslate"><span class="pre">Student.to_dict()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#part1_oop.load_data"><code class="docutils literal notranslate"><span class="pre">load_data()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#part1_oop.sanitize_input"><code class="docutils literal notranslate"><span class="pre">sanitize_input()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#part1_oop.save_data"><code class="docutils literal notranslate"><span class="pre">save_data()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-part4_database">Database API</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#part4_database.add_course_db"><code class="docutils literal notranslate"><span class="pre">add_course_db()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#part4_database.add_instructor_db"><code class="docutils literal notranslate"><span class="pre">add_instructor_db()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#part4_database.add_student_db"><code class="docutils literal notranslate"><span class="pre">add_student_db()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#part4_database.assign_instructor_db"><code class="docutils literal notranslate"><span class="pre">assign_instructor_db()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#part4_database.backup_db"><code class="docutils literal notranslate"><span class="pre">backup_db()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#part4_database.connect_db"><code class="docutils literal notranslate"><span class="pre">connect_db()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#part4_database.delete_course_db"><code class="docutils literal notranslate"><span class="pre">delete_course_db()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#part4_database.delete_instructor_db"><code class="docutils literal notranslate"><span class="pre">delete_instructor_db()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#part4_database.delete_student_db"><code class="docutils literal notranslate"><span class="pre">delete_student_db()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#part4_database.enroll_student_db"><code class="docutils literal notranslate"><span class="pre">enroll_student_db()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#part4_database.execute"><code class="docutils literal notranslate"><span class="pre">execute()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#part4_database.fetch_all"><code class="docutils literal notranslate"><span class="pre">fetch_all()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#part4_database.get_courses"><code class="docutils literal notranslate"><span class="pre">get_courses()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#part4_database.get_enrollments"><code class="docutils literal notranslate"><span class="pre">get_enrollments()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#part4_database.get_instructors"><code class="docutils literal notranslate"><span class="pre">get_instructors()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#part4_database.get_student_courses"><code class="docutils literal notranslate"><span class="pre">get_student_courses()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#part4_database.get_students"><code class="docutils literal notranslate"><span class="pre">get_students()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#part4_database.restore_db"><code class="docutils literal notranslate"><span class="pre">restore_db()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#part4_database.search_records"><code class="docutils literal notranslate"><span class="pre">search_records()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#part4_database.setup_db"><code class="docutils literal notranslate"><span class="pre">setup_db()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#part4_database.unenroll_student_db"><code class="docutils literal notranslate"><span class="pre">unenroll_student_db()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#part4_database.update_course_db"><code class="docutils literal notranslate"><span class="pre">update_course_db()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#part4_database.update_instructor_db"><code class="docutils literal notranslate"><span class="pre">update_instructor_db()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#part4_database.update_student_db"><code class="docutils literal notranslate"><span class="pre">update_student_db()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-part3_pyqt">PyQt5 application</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#part3_pyqt.App"><code class="docutils literal notranslate"><span class="pre">App</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#part3_pyqt.App.add_course"><code class="docutils literal notranslate"><span class="pre">App.add_course()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#part3_pyqt.App.add_instructor"><code class="docutils literal notranslate"><span class="pre">App.add_instructor()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#part3_pyqt.App.add_student"><code class="docutils literal notranslate"><span class="pre">App.add_student()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#part3_pyqt.App.backup"><code class="docutils literal notranslate"><span class="pre">App.backup()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#part3_pyqt.App.build_courses"><code class="docutils literal notranslate"><span class="pre">App.build_courses()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#part3_pyqt.App.build_instructors"><code class="docutils literal notranslate"><span class="pre">App.build_instructors()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#part3_pyqt.App.build_records"><code class="docutils literal notranslate"><span class="pre">App.build_records()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#part3_pyqt.App.build_students"><code class="docutils literal notranslate"><span class="pre">App.build_students()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#part3_pyqt.App.buttons"><code class="docutils literal notranslate"><span class="pre">App.buttons()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#part3_pyqt.App.clear_course"><code class="docutils literal notranslate"><span class="pre">App.clear_course()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#part3_pyqt.App.clear_instructor"><code class="docutils literal notranslate"><span class="pre">App.clear_instructor()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#part3_pyqt.App.clear_student"><code class="docutils literal notranslate"><span class="pre">App.clear_student()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#part3_pyqt.App.data_objects"><code class="docutils literal notranslate"><span class="pre">App.data_objects()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#part3_pyqt.App.del_course"><code class="docutils literal notranslate"><span class="pre">App.del_course()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#part3_pyqt.App.del_instructor"><code class="docutils literal notranslate"><span class="pre">App.del_instructor()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#part3_pyqt.App.del_student"><code class="docutils literal notranslate"><span class="pre">App.del_student()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#part3_pyqt.App.edit_course"><code class="docutils literal notranslate"><span class="pre">App.edit_course()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#part3_pyqt.App.edit_instructor"><code class="docutils literal notranslate"><span class="pre">App.edit_instructor()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#part3_pyqt.App.edit_student"><code class="docutils literal notranslate"><span class="pre">App.edit_student()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#part3_pyqt.App.export_csv"><code class="docutils literal notranslate"><span class="pre">App.export_csv()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#part3_pyqt.App.fields"><code class="docutils literal notranslate"><span class="pre">App.fields()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#part3_pyqt.App.load_json"><code class="docutils literal notranslate"><span class="pre">App.load_json()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#part3_pyqt.App.mk_table"><code class="docutils literal notranslate"><span class="pre">App.mk_table()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#part3_pyqt.App.pick_course"><code class="docutils literal notranslate"><span class="pre">App.pick_course()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#part3_pyqt.App.pick_instructor"><code class="docutils literal notranslate"><span class="pre">App.pick_instructor()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#part3_pyqt.App.pick_student"><code class="docutils literal notranslate"><span class="pre">App.pick_student()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#part3_pyqt.App.refresh"><code class="docutils literal notranslate"><span class="pre">App.refresh()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#part3_pyqt.App.refresh_records"><code class="docutils literal notranslate"><span class="pre">App.refresh_records()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#part3_pyqt.App.restore"><code class="docutils literal notranslate"><span class="pre">App.restore()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#part3_pyqt.App.save_json"><code class="docutils literal notranslate"><span class="pre">App.save_json()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#part3_pyqt.App.set_table"><code class="docutils literal notranslate"><span class="pre">App.set_table()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#part3_pyqt.App.warn"><code class="docutils literal notranslate"><span class="pre">App.warn()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#tkinter-application">Tkinter application</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tkinter.html">Tkinter Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab3_notes.html">Lab 3 Notes</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">School Management System</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Python API</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/modules.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="python-api">
+<h1>Python API<a class="headerlink" href="#python-api" title="Link to this heading"></a></h1>
+<section id="module-part1_oop">
+<span id="object-oriented-models"></span><h2>Object-oriented models<a class="headerlink" href="#module-part1_oop" title="Link to this heading"></a></h2>
+<p>Domain models and JSON persistence for the school management system.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="part1_oop.Course">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">part1_oop.</span></span><span class="sig-name descname"><span class="pre">Course</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">course_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">course_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">instructor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">enrolled_students</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/part1_oop.html#Course"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#part1_oop.Course" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Course model linking an instructor and enrolled students.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="part1_oop.Course.add_student">
+<span class="sig-name descname"><span class="pre">add_student</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">student</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/part1_oop.html#Course.add_student"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#part1_oop.Course.add_student" title="Link to this definition"></a></dt>
+<dd><p>Add a student or student identifier to the course.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="part1_oop.Course.to_dict">
+<span class="sig-name descname"><span class="pre">to_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/part1_oop.html#Course.to_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#part1_oop.Course.to_dict" title="Link to this definition"></a></dt>
+<dd><p>Return the course in a JSON-serializable dictionary.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="part1_oop.Instructor">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">part1_oop.</span></span><span class="sig-name descname"><span class="pre">Instructor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">age</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">email</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">instructor_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">assigned_courses</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/part1_oop.html#Instructor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#part1_oop.Instructor" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#part1_oop.Person" title="part1_oop.Person"><code class="xref py py-class docutils literal notranslate"><span class="pre">Person</span></code></a></p>
+<p>Person who can be assigned to courses.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="part1_oop.Instructor.assign_course">
+<span class="sig-name descname"><span class="pre">assign_course</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">course</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/part1_oop.html#Instructor.assign_course"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#part1_oop.Instructor.assign_course" title="Link to this definition"></a></dt>
+<dd><p>Assign the instructor to a course or course identifier.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="part1_oop.Instructor.to_dict">
+<span class="sig-name descname"><span class="pre">to_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/part1_oop.html#Instructor.to_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#part1_oop.Instructor.to_dict" title="Link to this definition"></a></dt>
+<dd><p>Return the instructor in a JSON-serializable dictionary.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="part1_oop.Person">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">part1_oop.</span></span><span class="sig-name descname"><span class="pre">Person</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">age</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">email</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/part1_oop.html#Person"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#part1_oop.Person" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Base model containing shared identity and contact information.</p>
+<dl class="py property">
+<dt class="sig sig-object py" id="part1_oop.Person.email">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">email</span></span><a class="headerlink" href="#part1_oop.Person.email" title="Link to this definition"></a></dt>
+<dd><p>Return the validated email address.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="part1_oop.Person.introduce">
+<span class="sig-name descname"><span class="pre">introduce</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/part1_oop.html#Person.introduce"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#part1_oop.Person.introduce" title="Link to this definition"></a></dt>
+<dd><p>Return a short introduction for the person.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="part1_oop.Student">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">part1_oop.</span></span><span class="sig-name descname"><span class="pre">Student</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">age</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">email</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">student_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">registered_courses</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/part1_oop.html#Student"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#part1_oop.Student" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#part1_oop.Person" title="part1_oop.Person"><code class="xref py py-class docutils literal notranslate"><span class="pre">Person</span></code></a></p>
+<p>Person who can register for courses.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="part1_oop.Student.register_course">
+<span class="sig-name descname"><span class="pre">register_course</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">course</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/part1_oop.html#Student.register_course"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#part1_oop.Student.register_course" title="Link to this definition"></a></dt>
+<dd><p>Register the student for a course or course identifier.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="part1_oop.Student.to_dict">
+<span class="sig-name descname"><span class="pre">to_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/part1_oop.html#Student.to_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#part1_oop.Student.to_dict" title="Link to this definition"></a></dt>
+<dd><p>Return the student in a JSON-serializable dictionary.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="part1_oop.load_data">
+<span class="sig-prename descclassname"><span class="pre">part1_oop.</span></span><span class="sig-name descname"><span class="pre">load_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'data.json'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/part1_oop.html#load_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#part1_oop.load_data" title="Link to this definition"></a></dt>
+<dd><p>Load model data from JSON, returning an empty list if absent.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>filename</strong> (<em>str</em>) – JSON file to read.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Reconstructed model data.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="part1_oop.sanitize_input">
+<span class="sig-prename descclassname"><span class="pre">part1_oop.</span></span><span class="sig-name descname"><span class="pre">sanitize_input</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_length</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/part1_oop.html#sanitize_input"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#part1_oop.sanitize_input" title="Link to this definition"></a></dt>
+<dd><p>Strip surrounding whitespace and limit a value to a safe length.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>value</strong> – Value to convert to text.</p></li>
+<li><p><strong>max_length</strong> (<em>int</em>) – Maximum number of characters to keep.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Cleaned text value.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="part1_oop.save_data">
+<span class="sig-prename descclassname"><span class="pre">part1_oop.</span></span><span class="sig-name descname"><span class="pre">save_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'data.json'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/part1_oop.html#save_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#part1_oop.save_data" title="Link to this definition"></a></dt>
+<dd><p>Save model data as formatted JSON.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> – Model object or collection of model objects.</p></li>
+<li><p><strong>filename</strong> (<em>str</em>) – Destination JSON file.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-part4_database">
+<span id="database-api"></span><h2>Database API<a class="headerlink" href="#module-part4_database" title="Link to this heading"></a></h2>
+<p>SQLite persistence and relationship operations for the school system.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="part4_database.add_course_db">
+<span class="sig-prename descclassname"><span class="pre">part4_database.</span></span><span class="sig-name descname"><span class="pre">add_course_db</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">course_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">course_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">instructor_id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/part4_database.html#add_course_db"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#part4_database.add_course_db" title="Link to this definition"></a></dt>
+<dd><p>Insert a course and return the affected row count.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="part4_database.add_instructor_db">
+<span class="sig-prename descclassname"><span class="pre">part4_database.</span></span><span class="sig-name descname"><span class="pre">add_instructor_db</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">instructor_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">age</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">email</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/part4_database.html#add_instructor_db"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#part4_database.add_instructor_db" title="Link to this definition"></a></dt>
+<dd><p>Insert an instructor and return the affected row count.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="part4_database.add_student_db">
+<span class="sig-prename descclassname"><span class="pre">part4_database.</span></span><span class="sig-name descname"><span class="pre">add_student_db</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">student_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">age</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">email</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/part4_database.html#add_student_db"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#part4_database.add_student_db" title="Link to this definition"></a></dt>
+<dd><p>Insert a student and return the affected row count.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="part4_database.assign_instructor_db">
+<span class="sig-prename descclassname"><span class="pre">part4_database.</span></span><span class="sig-name descname"><span class="pre">assign_instructor_db</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">course_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">instructor_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/part4_database.html#assign_instructor_db"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#part4_database.assign_instructor_db" title="Link to this definition"></a></dt>
+<dd><p>Assign or clear an instructor for a course.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="part4_database.backup_db">
+<span class="sig-prename descclassname"><span class="pre">part4_database.</span></span><span class="sig-name descname"><span class="pre">backup_db</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">destination</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'school_backup.db'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/part4_database.html#backup_db"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#part4_database.backup_db" title="Link to this definition"></a></dt>
+<dd><p>Copy the active database to a backup file and return its path.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="part4_database.connect_db">
+<span class="sig-prename descclassname"><span class="pre">part4_database.</span></span><span class="sig-name descname"><span class="pre">connect_db</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/part4_database.html#connect_db"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#part4_database.connect_db" title="Link to this definition"></a></dt>
+<dd><p>Open the SQLite database with foreign-key checks enabled.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="part4_database.delete_course_db">
+<span class="sig-prename descclassname"><span class="pre">part4_database.</span></span><span class="sig-name descname"><span class="pre">delete_course_db</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">course_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/part4_database.html#delete_course_db"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#part4_database.delete_course_db" title="Link to this definition"></a></dt>
+<dd><p>Delete a course by identifier.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="part4_database.delete_instructor_db">
+<span class="sig-prename descclassname"><span class="pre">part4_database.</span></span><span class="sig-name descname"><span class="pre">delete_instructor_db</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">instructor_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/part4_database.html#delete_instructor_db"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#part4_database.delete_instructor_db" title="Link to this definition"></a></dt>
+<dd><p>Delete an instructor by identifier.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="part4_database.delete_student_db">
+<span class="sig-prename descclassname"><span class="pre">part4_database.</span></span><span class="sig-name descname"><span class="pre">delete_student_db</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">student_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/part4_database.html#delete_student_db"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#part4_database.delete_student_db" title="Link to this definition"></a></dt>
+<dd><p>Delete a student by identifier.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="part4_database.enroll_student_db">
+<span class="sig-prename descclassname"><span class="pre">part4_database.</span></span><span class="sig-name descname"><span class="pre">enroll_student_db</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">student_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">course_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/part4_database.html#enroll_student_db"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#part4_database.enroll_student_db" title="Link to this definition"></a></dt>
+<dd><p>Enroll a student in a course without duplicating a relationship.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="part4_database.execute">
+<span class="sig-prename descclassname"><span class="pre">part4_database.</span></span><span class="sig-name descname"><span class="pre">execute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">query</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/part4_database.html#execute"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#part4_database.execute" title="Link to this definition"></a></dt>
+<dd><p>Execute a write query and return the affected row count.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="part4_database.fetch_all">
+<span class="sig-prename descclassname"><span class="pre">part4_database.</span></span><span class="sig-name descname"><span class="pre">fetch_all</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">query</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/part4_database.html#fetch_all"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#part4_database.fetch_all" title="Link to this definition"></a></dt>
+<dd><p>Execute a query and return all result rows.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="part4_database.get_courses">
+<span class="sig-prename descclassname"><span class="pre">part4_database.</span></span><span class="sig-name descname"><span class="pre">get_courses</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/part4_database.html#get_courses"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#part4_database.get_courses" title="Link to this definition"></a></dt>
+<dd><p>Return all courses ordered by identifier.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="part4_database.get_enrollments">
+<span class="sig-prename descclassname"><span class="pre">part4_database.</span></span><span class="sig-name descname"><span class="pre">get_enrollments</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/part4_database.html#get_enrollments"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#part4_database.get_enrollments" title="Link to this definition"></a></dt>
+<dd><p>Return all student-course relationships.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="part4_database.get_instructors">
+<span class="sig-prename descclassname"><span class="pre">part4_database.</span></span><span class="sig-name descname"><span class="pre">get_instructors</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/part4_database.html#get_instructors"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#part4_database.get_instructors" title="Link to this definition"></a></dt>
+<dd><p>Return all instructors ordered by identifier.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="part4_database.get_student_courses">
+<span class="sig-prename descclassname"><span class="pre">part4_database.</span></span><span class="sig-name descname"><span class="pre">get_student_courses</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">student_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/part4_database.html#get_student_courses"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#part4_database.get_student_courses" title="Link to this definition"></a></dt>
+<dd><p>Return course identifiers registered by one student.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="part4_database.get_students">
+<span class="sig-prename descclassname"><span class="pre">part4_database.</span></span><span class="sig-name descname"><span class="pre">get_students</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/part4_database.html#get_students"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#part4_database.get_students" title="Link to this definition"></a></dt>
+<dd><p>Return all students ordered by identifier.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="part4_database.restore_db">
+<span class="sig-prename descclassname"><span class="pre">part4_database.</span></span><span class="sig-name descname"><span class="pre">restore_db</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'school_backup.db'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/part4_database.html#restore_db"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#part4_database.restore_db" title="Link to this definition"></a></dt>
+<dd><p>Replace the active database with a previously saved backup.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="part4_database.search_records">
+<span class="sig-prename descclassname"><span class="pre">part4_database.</span></span><span class="sig-name descname"><span class="pre">search_records</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">term</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/part4_database.html#search_records"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#part4_database.search_records" title="Link to this definition"></a></dt>
+<dd><p>Search students, instructors, and courses by related text.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="part4_database.setup_db">
+<span class="sig-prename descclassname"><span class="pre">part4_database.</span></span><span class="sig-name descname"><span class="pre">setup_db</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/part4_database.html#setup_db"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#part4_database.setup_db" title="Link to this definition"></a></dt>
+<dd><p>Create the application tables when they do not already exist.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="part4_database.unenroll_student_db">
+<span class="sig-prename descclassname"><span class="pre">part4_database.</span></span><span class="sig-name descname"><span class="pre">unenroll_student_db</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">student_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">course_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/part4_database.html#unenroll_student_db"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#part4_database.unenroll_student_db" title="Link to this definition"></a></dt>
+<dd><p>Remove one student-course relationship.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="part4_database.update_course_db">
+<span class="sig-prename descclassname"><span class="pre">part4_database.</span></span><span class="sig-name descname"><span class="pre">update_course_db</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">old_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">course_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">course_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">instructor_id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/part4_database.html#update_course_db"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#part4_database.update_course_db" title="Link to this definition"></a></dt>
+<dd><p>Update a course identifier, name, and instructor.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="part4_database.update_instructor_db">
+<span class="sig-prename descclassname"><span class="pre">part4_database.</span></span><span class="sig-name descname"><span class="pre">update_instructor_db</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">old_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">instructor_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">age</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">email</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/part4_database.html#update_instructor_db"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#part4_database.update_instructor_db" title="Link to this definition"></a></dt>
+<dd><p>Update an instructor identifier and profile fields.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="part4_database.update_student_db">
+<span class="sig-prename descclassname"><span class="pre">part4_database.</span></span><span class="sig-name descname"><span class="pre">update_student_db</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">old_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">student_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">age</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">email</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/part4_database.html#update_student_db"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#part4_database.update_student_db" title="Link to this definition"></a></dt>
+<dd><p>Update a student identifier and profile fields.</p>
+</dd></dl>
+
+</section>
+<section id="module-part3_pyqt">
+<span id="pyqt5-application"></span><h2>PyQt5 application<a class="headerlink" href="#module-part3_pyqt" title="Link to this heading"></a></h2>
+<p>PyQt5 interface for managing the school database.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="part3_pyqt.App">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">part3_pyqt.</span></span><span class="sig-name descname"><span class="pre">App</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/part3_pyqt.html#App"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#part3_pyqt.App" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">QWidget</span></code></p>
+<p>Main window containing CRUD, search, export, and backup controls.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="part3_pyqt.App.add_course">
+<span class="sig-name descname"><span class="pre">add_course</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/part3_pyqt.html#App.add_course"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#part3_pyqt.App.add_course" title="Link to this definition"></a></dt>
+<dd><p>Validate and add a course.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="part3_pyqt.App.add_instructor">
+<span class="sig-name descname"><span class="pre">add_instructor</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/part3_pyqt.html#App.add_instructor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#part3_pyqt.App.add_instructor" title="Link to this definition"></a></dt>
+<dd><p>Validate and add an instructor.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="part3_pyqt.App.add_student">
+<span class="sig-name descname"><span class="pre">add_student</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/part3_pyqt.html#App.add_student"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#part3_pyqt.App.add_student" title="Link to this definition"></a></dt>
+<dd><p>Validate and add a student, optionally enrolling them.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="part3_pyqt.App.backup">
+<span class="sig-name descname"><span class="pre">backup</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/part3_pyqt.html#App.backup"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#part3_pyqt.App.backup" title="Link to this definition"></a></dt>
+<dd><p>Create a database backup and report its path.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="part3_pyqt.App.build_courses">
+<span class="sig-name descname"><span class="pre">build_courses</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/part3_pyqt.html#App.build_courses"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#part3_pyqt.App.build_courses" title="Link to this definition"></a></dt>
+<dd><p>Build the course management tab.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="part3_pyqt.App.build_instructors">
+<span class="sig-name descname"><span class="pre">build_instructors</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/part3_pyqt.html#App.build_instructors"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#part3_pyqt.App.build_instructors" title="Link to this definition"></a></dt>
+<dd><p>Build the instructor management tab.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="part3_pyqt.App.build_records">
+<span class="sig-name descname"><span class="pre">build_records</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/part3_pyqt.html#App.build_records"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#part3_pyqt.App.build_records" title="Link to this definition"></a></dt>
+<dd><p>Build the combined search and file operations tab.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="part3_pyqt.App.build_students">
+<span class="sig-name descname"><span class="pre">build_students</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/part3_pyqt.html#App.build_students"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#part3_pyqt.App.build_students" title="Link to this definition"></a></dt>
+<dd><p>Build the student management tab.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="part3_pyqt.App.buttons">
+<span class="sig-name descname"><span class="pre">buttons</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">specs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/part3_pyqt.html#App.buttons"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#part3_pyqt.App.buttons" title="Link to this definition"></a></dt>
+<dd><p>Create a horizontal row of connected push buttons.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="part3_pyqt.App.clear_course">
+<span class="sig-name descname"><span class="pre">clear_course</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/part3_pyqt.html#App.clear_course"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#part3_pyqt.App.clear_course" title="Link to this definition"></a></dt>
+<dd><p>Clear course controls and selection state.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="part3_pyqt.App.clear_instructor">
+<span class="sig-name descname"><span class="pre">clear_instructor</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/part3_pyqt.html#App.clear_instructor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#part3_pyqt.App.clear_instructor" title="Link to this definition"></a></dt>
+<dd><p>Clear instructor controls and selection state.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="part3_pyqt.App.clear_student">
+<span class="sig-name descname"><span class="pre">clear_student</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/part3_pyqt.html#App.clear_student"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#part3_pyqt.App.clear_student" title="Link to this definition"></a></dt>
+<dd><p>Clear student controls and selection state.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="part3_pyqt.App.data_objects">
+<span class="sig-name descname"><span class="pre">data_objects</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/part3_pyqt.html#App.data_objects"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#part3_pyqt.App.data_objects" title="Link to this definition"></a></dt>
+<dd><p>Build model objects from the current database records.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="part3_pyqt.App.del_course">
+<span class="sig-name descname"><span class="pre">del_course</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/part3_pyqt.html#App.del_course"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#part3_pyqt.App.del_course" title="Link to this definition"></a></dt>
+<dd><p>Delete the selected course.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="part3_pyqt.App.del_instructor">
+<span class="sig-name descname"><span class="pre">del_instructor</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/part3_pyqt.html#App.del_instructor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#part3_pyqt.App.del_instructor" title="Link to this definition"></a></dt>
+<dd><p>Delete the selected instructor.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="part3_pyqt.App.del_student">
+<span class="sig-name descname"><span class="pre">del_student</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/part3_pyqt.html#App.del_student"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#part3_pyqt.App.del_student" title="Link to this definition"></a></dt>
+<dd><p>Delete the selected student.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="part3_pyqt.App.edit_course">
+<span class="sig-name descname"><span class="pre">edit_course</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/part3_pyqt.html#App.edit_course"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#part3_pyqt.App.edit_course" title="Link to this definition"></a></dt>
+<dd><p>Validate and update the selected course.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="part3_pyqt.App.edit_instructor">
+<span class="sig-name descname"><span class="pre">edit_instructor</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/part3_pyqt.html#App.edit_instructor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#part3_pyqt.App.edit_instructor" title="Link to this definition"></a></dt>
+<dd><p>Validate and update the selected instructor.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="part3_pyqt.App.edit_student">
+<span class="sig-name descname"><span class="pre">edit_student</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/part3_pyqt.html#App.edit_student"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#part3_pyqt.App.edit_student" title="Link to this definition"></a></dt>
+<dd><p>Validate and update the selected student.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="part3_pyqt.App.export_csv">
+<span class="sig-name descname"><span class="pre">export_csv</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/part3_pyqt.html#App.export_csv"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#part3_pyqt.App.export_csv" title="Link to this definition"></a></dt>
+<dd><p>Export students, instructors, and courses to CSV.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="part3_pyqt.App.fields">
+<span class="sig-name descname"><span class="pre">fields</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">labels</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/part3_pyqt.html#App.fields"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#part3_pyqt.App.fields" title="Link to this definition"></a></dt>
+<dd><p>Create a form layout and its labeled line-edit controls.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="part3_pyqt.App.load_json">
+<span class="sig-name descname"><span class="pre">load_json</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/part3_pyqt.html#App.load_json"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#part3_pyqt.App.load_json" title="Link to this definition"></a></dt>
+<dd><p>Restore records from a user-selected JSON file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="part3_pyqt.App.mk_table">
+<span class="sig-name descname"><span class="pre">mk_table</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">headers</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/part3_pyqt.html#App.mk_table"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#part3_pyqt.App.mk_table" title="Link to this definition"></a></dt>
+<dd><p>Create a read-only table with row selection enabled.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="part3_pyqt.App.pick_course">
+<span class="sig-name descname"><span class="pre">pick_course</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">row</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/part3_pyqt.html#App.pick_course"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#part3_pyqt.App.pick_course" title="Link to this definition"></a></dt>
+<dd><p>Copy a selected course row into the form controls.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="part3_pyqt.App.pick_instructor">
+<span class="sig-name descname"><span class="pre">pick_instructor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">row</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/part3_pyqt.html#App.pick_instructor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#part3_pyqt.App.pick_instructor" title="Link to this definition"></a></dt>
+<dd><p>Copy a selected instructor row into the form controls.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="part3_pyqt.App.pick_student">
+<span class="sig-name descname"><span class="pre">pick_student</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">row</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/part3_pyqt.html#App.pick_student"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#part3_pyqt.App.pick_student" title="Link to this definition"></a></dt>
+<dd><p>Copy a selected student row into the form controls.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="part3_pyqt.App.refresh">
+<span class="sig-name descname"><span class="pre">refresh</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/part3_pyqt.html#App.refresh"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#part3_pyqt.App.refresh" title="Link to this definition"></a></dt>
+<dd><p>Reload database records and refresh all tabs.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="part3_pyqt.App.refresh_records">
+<span class="sig-name descname"><span class="pre">refresh_records</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/part3_pyqt.html#App.refresh_records"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#part3_pyqt.App.refresh_records" title="Link to this definition"></a></dt>
+<dd><p>Refresh the combined records table using the search field.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="part3_pyqt.App.restore">
+<span class="sig-name descname"><span class="pre">restore</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/part3_pyqt.html#App.restore"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#part3_pyqt.App.restore" title="Link to this definition"></a></dt>
+<dd><p>Restore the database backup and refresh the interface.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="part3_pyqt.App.save_json">
+<span class="sig-name descname"><span class="pre">save_json</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/part3_pyqt.html#App.save_json"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#part3_pyqt.App.save_json" title="Link to this definition"></a></dt>
+<dd><p>Save the current records to a user-selected JSON file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="part3_pyqt.App.set_table">
+<span class="sig-name descname"><span class="pre">set_table</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rows</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/part3_pyqt.html#App.set_table"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#part3_pyqt.App.set_table" title="Link to this definition"></a></dt>
+<dd><p>Replace a table’s contents with the supplied rows.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="part3_pyqt.App.warn">
+<span class="sig-name descname"><span class="pre">warn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">e</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/part3_pyqt.html#App.warn"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#part3_pyqt.App.warn" title="Link to this definition"></a></dt>
+<dd><p>Show a database or validation error in a warning dialog.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="tkinter-application">
+<h2>Tkinter application<a class="headerlink" href="#tkinter-application" title="Link to this heading"></a></h2>
+<p>The Tkinter module is documented separately because importing it starts the
+GUI event loop. See <a class="reference internal" href="tkinter.html"><span class="doc">Tkinter Interface</span></a> for its helpers, callbacks, and complete
+source listing.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="School Management System" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="tkinter.html" class="btn btn-neutral float-right" title="Tkinter Interface" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Khaled Kanawati.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,47 @@
+Tkinter Interface
+==================
+
+The Tkinter application provides the same school management workflow as the
+PyQt5 application. It includes tabs for students, instructors, courses, and
+combined search and record operations.
+
+The interface supports:
+
+* Create, edit, delete, and clear operations for each model.
+* Course enrollment and instructor assignment.
+* Search by name, ID, email, or course.
+* JSON save and restore.
+* SQLite backup and restore.
+
+The source contains concise docstrings for all 21 callbacks and helpers. It is
+included below as a source reference instead of being imported by Sphinx,
+because importing it starts the Tkinter event loop.
+
+Module
+------
+
+.. py:module:: part2_tkinter
+
+Tkinter helpers and callbacks
+------------------------------
+
+The module documents these helpers and callbacks:
+
+* ``err``: display validation and database errors.
+* ``entries``: create labeled entry fields.
+* ``refresh``: reload database records into tables and selectors.
+* ``add_student``, ``update_student``, ``delete_student``: manage students.
+* ``select_student``, ``clear_student``: manage student selection and fields.
+* ``add_instructor``, ``update_instructor``, ``delete_instructor``: manage instructors.
+* ``select_instructor``, ``clear_instructor``: manage instructor selection and fields.
+* ``add_course``, ``update_course``, ``delete_course``: manage courses.
+* ``select_course``, ``clear_course``: manage course selection and fields.
+* ``populate_all``: search and display combined records.
+* ``save_json``, ``load_json_gui``: save and restore database data.
+
+The edit, selection, and clear callbacks are also included in the source
+listing below.
+
+.. literalinclude:: ../part2_tkinter.py
+   :language: python
+   :linenos:
