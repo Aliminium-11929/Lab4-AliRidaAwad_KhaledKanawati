@@ -1,11 +1,11 @@
 {
   "info": {
-    "_postman_id": "f9049d51-793d-41d0-8aba-b527a0a7a101",
+    "_postman_id": "088be3df-df7a-43dd-bddc-0b575702c91f",
     "name": "Flask user app",
     "description": "Lab 5 user management API. Run Add user first to set userId, then Get, Update, Delete. Saved examples are snapshots based on sample data; actual IDs may vary.",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "_exporter_id": "58987747",
-    "_collection_link": "https://go.postman.co/collection/58987747-f9049d51-793d-41d0-8aba-b527a0a7a101?source=collection_link"
+    "_collection_link": "https://go.postman.co/collection/58987747-088be3df-df7a-43dd-bddc-0b575702c91f?source=collection_link"
   },
   "item": [
     {
