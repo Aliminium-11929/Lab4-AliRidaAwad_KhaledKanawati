@@ -207,3 +207,7 @@ Both members contributed to:
 The final version combines the Tkinter and PyQt5 implementations into one project.
 
 Both interfaces use the same OOP classes, database layer, and SQLite database, providing two different graphical interfaces for the same school management system.
+
+## Lab 5 extension
+
+The Lab 5 Flask user-management API has been added under `lab5_api/`, without modifying the original Lab 4 applications. See [`lab5_api/README.md`](lab5_api/README.md) for setup, endpoints, Postman import, testing, and submission steps.

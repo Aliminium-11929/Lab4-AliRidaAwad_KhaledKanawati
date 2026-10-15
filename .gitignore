@@ -2,3 +2,8 @@ __pycache__/
 .vscode/
 school.db
 venv/
+
+.venv/
+lab5_api/database.db
+.pytest_cache/
+__pycache__/
